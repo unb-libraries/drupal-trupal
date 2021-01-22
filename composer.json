@@ -15,7 +15,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "unb-libraries/php-testgen": "dev-dev"
+    "unb-libraries/trupal": "dev-dev"
   },
   "extra": {
     "drush": {
