@@ -58,9 +58,27 @@ class ModuleTestsCommands extends DrushCommands {
     if ($options['output-dir']) {
       $params['outputDir'] = $options['output-dir'];
     }
+
+    $count = 0;
     foreach ($module_names as $module_name) {
-      $this->generator()->generateTests($module_name, $params);
+      $this->output->writeln($module_name);
+      foreach (range(0, strlen($module_name) - 1) as $i) {
+        if ($i < strlen($module_name) - 1) {
+          $this->output->write('=');
+        }
+        else {
+          $this->output->writeln('=');
+        }
+
+      }
+      foreach ($this->generator()->generateTests($module_name, $params) as $filepath) {
+        $this->output->writeln($filepath);
+        $count++;
+      }
+      $this->output->writeln('');
     }
+
+    $this->output->writeln("Generated {$count} tests.");
   }
 
 }
