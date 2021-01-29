@@ -81,4 +81,35 @@ class ModuleTestsCommands extends DrushCommands {
     $this->output->writeln("Generated {$count} tests.");
   }
 
+  /**
+   * List discovered subject files for the given module(s).
+   *
+   * @param array $module_names
+   *   Name of the module for which to generate test cases.
+   *
+   * @command trupal:list:subjects
+   *
+   * @aliases ls-module,lsm
+   */
+  public function subjects(array $module_names) {
+    foreach ($module_names as $module_name) {
+      $this->output->writeln($module_name);
+      foreach (range(0, strlen($module_name) - 1) as $i) {
+        if ($i < strlen($module_name) - 1) {
+          $this->output->write('=');
+        }
+        else {
+          $this->output->writeln('=');
+        }
+
+      }
+      foreach ($this->generator()->getSubjects($module_name) as $file) {
+        $this->output->writeln($file->path());
+      }
+      $this->output->writeln('');
+    }
+  }
+
+
+
 }

@@ -93,6 +93,26 @@ class ModuleTestGenerator extends DrupalTestGenerator {
   }
 
   /**
+   * Retrieve the available subject definition files for the given module.
+   *
+   * @param string $module_name
+   *   A module identifier.
+   *
+   * @return \Trupal\os\FileInterface[]
+   *   An array of files.
+   */
+  public function getSubjects(string $module_name) {
+    $module = $this->getModule($module_name);
+    $discovery = static::trupal()->subjectDiscovery();
+
+    $discovery->addDirectory($this->getSubjectRoot($module));
+    $subjects = $discovery->discover();
+    $discovery->popDirectory();
+
+    return $subjects;
+  }
+
+  /**
    * Retrieve the path to the folder which contains subject definitions.
    *
    * @param \Drupal\Core\Extension\Extension $module
