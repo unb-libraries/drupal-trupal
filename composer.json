@@ -1,7 +1,7 @@
 {
-  "name": "unb-libraries/drupal-trupal",
+  "name": "trupal/drupal-trupal",
   "description": "Trupal test generation for Drupal.",
-  "type": "drupal-module",
+  "type": "trupal-extension",
   "license": "MIT",
   "authors": [
     {
@@ -15,7 +15,7 @@
   ],
   "minimum-stability": "dev",
   "require": {
-    "unb-libraries/trupal": "dev-dev"
+    "trupal/trupal": "dev-dev"
   },
   "extra": {
     "drush": {
