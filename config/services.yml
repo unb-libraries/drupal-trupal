@@ -1,0 +1,6 @@
+services:
+  command.drupal.generate_module:
+    class: Trupal\Console\Drupal\Command\DrupalGenerateModuleTests
+    arguments: ['@trupal']
+    tags:
+      - console.command.trupal
