@@ -17,11 +17,9 @@
   "require": {
     "trupal/trupal": "dev-dev"
   },
-  "extra": {
-    "drush": {
-      "services": {
-        "drush.services.yml": "^9"
-      }
+  "autoload": {
+    "psr-4": {
+      "Trupal\\": "src"
     }
   }
 }
